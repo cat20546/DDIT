@@ -1,0 +1,5 @@
+# SqlMapConfig.properties
+driver=org.mariadb.jdbc.Driver
+url=jdbc:mariadb://183.111.199.211:3306/yyy9942
+username=yyy9942
+password=wjdwns123

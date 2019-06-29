@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbLogIn" alignment="TOP_CENTER" minHeight="700.0" minWidth="500.0" spacing="10.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.login.LogInController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="500.0" style="-fx-background-color: #0080FF;">
+         <children>
+            <JFXButton focusTraversable="false" onAction="#onCloseClick" prefHeight="32.0" prefWidth="32.0" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </children></HBox>
+      <Label text="로그인" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfId" maxHeight="45.0" maxWidth="400.0" minHeight="45.0" minWidth="400.0" promptText="아이디">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </TextField>
+      <PasswordField fx:id="tfPw" maxHeight="45.0" maxWidth="400.0" prefHeight="45.0" prefWidth="400.0" promptText="비밀번호">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <AnchorPane maxWidth="400.0" minWidth="400.0">
+         <children>
+            <JFXButton fx:id="btnFindPassword" focusTraversable="false" layoutX="276.0" onAction="#onFindPasswordClick" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="비밀번호 찾기">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnLogin" focusTraversable="false" maxHeight="60.0" maxWidth="400.0" minHeight="60.0" minWidth="400.0" onAction="#onLoginClick" style="-fx-background-color: #0080FF;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="로그인" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <HBox alignment="CENTER" maxHeight="45.0" maxWidth="400.0" minHeight="45.0" minWidth="400.0">
+         <children>
+            <Label text="아직 회원이 아니세요?">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="BtnSignin" focusTraversable="false" onAction="#onSigninClick" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="이메일로 회원가입" textFill="#2d5eff">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXButton>
+         </children>
+      </HBox>
+      <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <image>
+            <Image url="@../../res/irene.png" />
+         </image>
+      </ImageView>
+   </children>
+</VBox>

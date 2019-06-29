@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="383.0" style="-fx-background-color: #0080ff; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roomInfo.view.WantContractController">
+   <children>
+      <ImageView fitHeight="646.0" fitWidth="640.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/realtorInfo.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="256.0" layoutY="571.0" onAction="#onContractClick" prefHeight="46.0" prefWidth="93.0" text=" " />
+      <JFXButton layoutX="325.0" layoutY="32.0" onAction="#onCloseClick" prefHeight="23.0" prefWidth="26.0" text=" " />
+   </children>
+</AnchorPane>

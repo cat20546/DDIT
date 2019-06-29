@@ -1,0 +1,15 @@
+.mainTopButton {
+    -fx-text-fill: #888888;
+    -fx-font-family: "-윤고딕350";
+    -fx-background-color: white;
+    -fx-font-weight:bold;
+    -fx-font-size: 16px;
+}
+
+.mainTopButton:hover {
+    -fx-text-fill: #006cff;
+}
+
+.title{
+	-fx-font-family: "-윤고딕330"
+}

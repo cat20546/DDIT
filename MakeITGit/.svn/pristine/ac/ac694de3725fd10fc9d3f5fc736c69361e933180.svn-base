@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+    <sqlMap namespace="siteInfo">
+    
+    	<insert id="upload" parameterClass="vo.BoardVO">
+    	
+    		insert into BOARD
+    		(board_title, board_content, board_date, board_category, board_img, mem_id)
+    		values (#board_title#, #board_content#, #board_date#, #board_category#, #board_img#, #mem_id#)
+    	
+    	</insert>
+    	
+    	<select id="showNoticeBoard" resultClass="vo.BoardVO">
+    	
+    		select *
+    		from BOARD
+    		where 1=1
+    		and board_category='공지사항'
+    		order by board_id desc
+    	
+    	</select>
+    	
+    	<select id="showFQBoard" resultClass="vo.BoardVO">
+    	
+    		select *
+    		from BOARD
+    		where 1=1
+    		and board_category='자주 묻는 질문'
+    		order by board_id desc
+    	
+    	</select>
+    	
+    	<update id="updateArticle" parameterClass="vo.BoardVO">
+    	
+    		update BOARD
+    		set board_title = #board_title#
+			,board_content = #board_content#
+			,board_date = #board_date#
+			,board_category = #board_category#
+			,board_img = #board_img#
+			,mem_id=#mem_id#
+			where board_id = #board_id#
+    	
+    	</update>
+    	
+    	<delete id="deleteArticle" parameterClass="vo.BoardVO">
+    	
+    		delete from BOARD
+    		where board_id = #board_id#
+    	
+    	</delete>
+    	
+    	<select id="checkCommentExist" parameterClass="Integer" resultClass="Integer">
+    	
+    		select count(*) as cnt
+    		from COMMENTS
+			where board_id = #board_id#
+    	
+    	</select>
+    	
+    	<insert id="addComment" parameterClass="vo.CommentVO">
+    	
+    		insert into COMMENTS
+    		(comment_content, comment_date, mem_id, board_id)
+    		values (#comment_content#, #comment_date#, #mem_id#, #board_id#)
+    	
+    	</insert>
+    	
+    	
+    	<select id="getCommentList" parameterClass="Integer" resultClass="vo.CommentVO">
+    		SELECT a.comment_id,
+    			   a.mem_id,
+	   			   a.comment_content,
+	   			   a.comment_date,
+	   			   a.board_id
+			FROM COMMENTS as a,
+				 BOARD as b
+			WHERE a.board_id = b.board_id
+			AND	  a.board_id = #board_id#
+			ORDER by a.comment_id DESC 
+    	
+    	</select>
+    	
+    	<update id="updateComment" parameterClass="vo.CommentVO">
+    		update COMMENTS
+    		set comment_content = #comment_content#
+			where comment_id = #comment_id#
+    	</update>
+    	
+    	<delete id="deleteComment" parameterClass="vo.CommentVO">
+    	
+    		delete from COMMENTS
+    		where comment_id = #comment_id#
+    	
+    	</delete>
+    	
+    	<insert id="insertChatRoom" parameterClass="vo.ChatRoomVO">
+    	
+    		insert into CHAT_ROOM
+    		(chat_name, chat_type, chat_room_date)
+    		values (#chat_name#, #chat_type#, now())
+    	
+    	</insert>
+    	
+    	<insert id="insertChat" parameterClass="vo.ChatVO">
+    	
+    		insert into CHAT
+    		(chat_message, chat_date, chat_room_id, mem_id)
+    		values (#chat_message#, now(), #chat_room_id#, #mem_id#)
+    	
+    	</insert>
+    	
+    	<insert id="insertParticipant" parameterClass="vo.ParticipantVO">
+    	
+    		insert into PARTICIPANT
+    		(participant_date, mem_id, chat_room_id)
+    		values (now(), #mem_id#, #chat_room_id#)
+    	
+    	</insert>
+    	
+    </sqlMap>
+    

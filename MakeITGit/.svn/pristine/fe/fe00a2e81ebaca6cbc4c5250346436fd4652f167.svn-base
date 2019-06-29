@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.mypage.BoardDefaultController">
+   <children>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <JFXTextField fx:id="tfSearch" onAction="#onSearchTyped" prefHeight="40.0" prefWidth="240.0" promptText="search" unFocusColor="#0084ff">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="110.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="휴먼고딕" size="18.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="2.0" prefWidth="1580.0" style="-fx-background-color: #0080FF;">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </HBox>
+      <AnchorPane>
+         <children>
+            <Label layoutX="1221.0" text="작성시간" textFill="#0080ff">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="642.0" text="제목" textFill="#0080ff">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" text="No" textFill="#0080ff">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label layoutX="160.0" text="카테고리" textFill="#0080ff">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="996.0" text="글쓴이" textFill="#0080ff">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </AnchorPane>
+      <HBox prefHeight="1.0" prefWidth="1580.0" style="-fx-background-color: #0080FF;">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox fx:id="vbBoardContainer" minHeight="567.0" prefHeight="567.0" prefWidth="1380.0">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="1580.0" spacing="500.0">
+         <children>
+            <JFXButton onAction="#onBtnLeftAction" text="&lt;" textFill="#0008ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton onAction="#onBtnRightAction" text="&gt;" textFill="#0008ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>

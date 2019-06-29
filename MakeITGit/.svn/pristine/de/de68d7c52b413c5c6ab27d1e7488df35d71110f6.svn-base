@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- namespace속성 : 아래에서 작성한 SQL을 호출할 때 같이 사용된다. -->			
+<sqlMap namespace="interest">
+	
+
+	<select id="getAllSearchLog" resultClass="RoomVO" >
+			select *
+		 FROM ROOM, SEARCH_LOG
+         where ROOM.ROOM_ID = SEARCH_LOG.room_id
+           and SEARCH_LOG.mem_id = #member_id#
+	      GROUP BY ROOM.room_id
+	</select>
+	
+	<select id="getAllRoomImg" resultClass="RoomImgVO" parameterClass="Integer">
+		select ROOM_IMG.IMG_ID,
+      		   ROOM_IMG.ROOM_ID,
+     		   ROOM_IMG.IMG_URI
+ 		  FROM ROOM, SEARCH_LOG, ROOM_IMG
+		 where ROOM.room_id = SEARCH_LOG.room_id
+  	       and SEARCH_LOG.room_id = ROOM_IMG.room_id
+  	       GROUP BY ROOM.room_id
+	</select>
+	
+	<select id="getRoomImg" resultClass="RoomImgVO" parameterClass="Integer">
+		SELECT * 
+		FROM ROOM_IMG, SEARCH_LOG
+		WHERE ROOM_IMG.ROOM_ID = #room_id#
+		group by ROOM_IMG.room_id
+	</select>
+
+	<select id="getAllFavorite" resultClass="RoomVO">
+		select *
+		FROM ROOM, LIKES
+		WHERE ROOM.room_id = LIKES.room_id
+		  and LIKES.mem_id = #member_id#
+		  AND ROOM.is_delete = 0
+		  group by ROOM.room_id
+	</select>
+		
+		
+	<select id="getFavoriteRoomImg" resultClass="RoomImgVO" parameterClass="Integer">
+		select *
+ 		  FROM ROOM_IMG, LIKES
+		 where ROOM_IMG.ROOM_ID = #room_id#
+  	     group by ROOM.room_id
+	</select>
+	
+</sqlMap>			
+
+
+
+
+

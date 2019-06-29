@@ -1,0 +1,225 @@
+package member.dao;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import main.view.BuildedSqlMapConfig;
+import vo.BlacklistVO;
+import vo.BoardVO;
+import vo.MemberVO;
+import vo.ReviewVO;
+
+public class IMemberDaoImpl implements IMemberDao{
+
+	private static IMemberDaoImpl dao;
+	private SqlMapClient client;
+	
+	private IMemberDaoImpl() {
+		client=BuildedSqlMapConfig.getInstance();
+	}
+	
+	public static IMemberDao getInstance() {
+		if(dao==null) {
+			dao=new IMemberDaoImpl();
+		}
+		return dao;
+	}
+
+	@Override
+	public int checkDuplication(String id) throws SQLException {
+		int chk = (int) client.queryForObject("member.checkDuplication", id);
+		return chk;
+	}
+
+	@Override
+	public int signUp(MemberVO mv) throws SQLException {
+		Object obj = client.insert("member.signUp", mv);
+		if(obj == null) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+	
+	
+	@Override
+	public String getAddress(String searchStr) {
+		String address = "";
+		searchStr = searchStr.replaceAll(" ", "%20");
+		String urlLink = "https://maps.googleapis.com/maps/api/geocode/json?address=" + searchStr
+				+ "&key=AIzaSyCiNE-lKV0z0cU8WCjFDw72ojQ0POpY-Po";
+		try {
+			URL url = new URL(urlLink);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+
+			BufferedReader bin = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			StringBuffer sb = new StringBuffer();
+			String line;
+
+			while ((line = bin.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObj;
+			jsonObj = (JSONObject) jsonParser.parse(sb.toString());
+
+			JSONArray jsonArray = (JSONArray) jsonObj.get("results");
+			
+			JSONObject tempObj = (JSONObject) jsonArray.get(0);
+			address = (String)tempObj.get("formatted_address");
+
+			System.out.println(address);
+			
+			
+
+		} catch(IndexOutOfBoundsException e) {
+			// 이 예외는 검색한 결과가 없을 때 나타납니다
+			return null;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return address;
+	}
+	
+	@Override
+	public ObservableList<BoardVO> getMyBoardList(String mem_id) {
+		try {
+			List<BoardVO> list = client.queryForList("member.getMyBoardList", mem_id);
+			return FXCollections.observableArrayList(list);
+		} catch (SQLException e) {
+			System.out.println("아 내 리뷰 못가져옴 ㅡㅡ");
+			return null;
+		}
+	}
+	
+	
+	@Override
+	public List<Map<String, Object>> getReceiveContrace(String mem_id) {
+		try {
+			List<Map<String, Object>> list = client.queryForList("member.getReceiveContract",mem_id);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public void newContract(Map<String, Object> param) {
+		try {
+			client.insert("member.newContract", param);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public List<Map<String, Object>> getContract(String mem_id){
+		try {
+			List<Map<String, Object>> list = client.queryForList("member.getContract",mem_id);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public void insertReview(ReviewVO rv) {
+		try {
+			client.insert("member.addReview", rv);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<ReviewVO> getMyReview(String mem_id) {
+		try {
+			return client.queryForList("member.getMyReview", mem_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public void deleteReview(int review_id) {
+		try {
+			client.delete("member.deleteReview", review_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void updateReview(ReviewVO rv) {
+		try {
+			client.update("member.updateReview", rv);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public List<BlacklistVO> checkBlacklist(String mem_id) {
+		try {
+			List<BlacklistVO> list = client.queryForList("member.isBlacklist", mem_id);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+	@Override
+	public void deleteContract(int room_id) {
+		try {
+			client.delete("member.deleteContract", room_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public int deleteAccount(MemberVO currentMember) throws SQLException {
+		int cnt = client.update("member.deleteAccount", currentMember);
+		return cnt;
+	}
+
+	@Override
+	public int checkCorrectEmail(Map<String, String> param1) throws SQLException {
+		int chk = (int) client.queryForObject("member.checkCorrectEmail", param1);
+		return chk;
+	}
+
+	@Override
+	public int updateTempPw(Map<String, String> param2) throws SQLException {
+		int cnt = client.update("member.updateTempPw", param2);
+		return cnt;
+	}
+
+	@Override
+	public int checkDeletedMember(String id) throws SQLException {
+		int cnt = (int) client.queryForObject("member.checkDeletedMember",id);
+		return cnt;
+	}
+
+}

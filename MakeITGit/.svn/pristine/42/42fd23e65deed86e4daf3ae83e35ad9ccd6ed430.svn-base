@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="memberCell" alignment="CENTER" maxHeight="30.0" maxWidth="930.0" minHeight="30.0" minWidth="930.0" prefHeight="30.0" prefWidth="930.0" spacing="100.0" style="-fx-background-color: #FFFFFF;" styleClass="cell-vbox-border" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.member.MemberCellController">
+   <children>
+      <Label fx:id="mem_id" alignment="CENTER" prefHeight="15.0" prefWidth="100.0" text="회원아이디">
+         <font>
+            <Font name="휴먼고딕" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="80.0" />
+         </HBox.margin></Label>
+      <Label fx:id="mem_name" alignment="CENTER" prefHeight="15.0" prefWidth="100.0" text="이름">
+         <font>
+            <Font name="휴먼고딕" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin></Label>
+      <Label fx:id="mem_auth" alignment="CENTER" prefHeight="15.0" prefWidth="100.0" text="권한">
+         <font>
+            <Font name="휴먼고딕" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="registration" alignment="CENTER" prefHeight="15.0" prefWidth="100.0" text="신고">
+         <font>
+            <Font name="휴먼고딕" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="blackList" alignment="CENTER" prefHeight="15.0" prefWidth="100.0" text="블랙리스트">
+         <font>
+            <Font name="휴먼고딕" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

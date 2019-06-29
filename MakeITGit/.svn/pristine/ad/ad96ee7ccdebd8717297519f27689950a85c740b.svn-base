@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="-Infinity" prefWidth="485.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #607080; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="owner.myRoom.OwnerRoomCellController">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <JFXCheckBox fx:id="cbRoom" prefHeight="41.0" prefWidth="50.0" text=" ">
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </JFXCheckBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="417.0">
+               <children>
+                  <Label fx:id="lbContractInfo" prefHeight="33.0" prefWidth="132.0" text=" 계약대기중" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     " />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox style="-fx-background-color: #CEECF5;">
+         <children>
+            <Label text="공실 번호 " textFill="#0060cc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="lbRoomId" text="0" textFill="#0060cc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" right="250.0" top="30.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox prefWidth="455.0">
+         <children>
+            <Label fx:id="lbRoomTitle" text="제목제목제목제목">
+               <font>
+                  <Font name="휴먼고딕" size="20.0" />
+               </font>
+            </Label>
+            <Text fx:id="lbRoomAddr" fill="#607080" strokeType="OUTSIDE" strokeWidth="0.0" text="TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText" wrappingWidth="374.02734375">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <HBox prefHeight="23.0" prefWidth="455.0">
+               <children>
+                  <Label fx:id="lbRoomTransacrtion" text="월세  ">
+                     <font>
+                        <Font name="휴먼고딕" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbRoomPrice" text="1000/45">
+                     <font>
+                        <Font name="휴먼고딕" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label text="만원">
+                     <font>
+                        <Font name="휴먼고딕" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label text="조회수  ">
+                     <font>
+                        <Font name="휴먼고딕" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lbViewCount" text="30">
+                     <font>
+                        <Font name="휴먼고딕" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label text="회">
+                     <font>
+                        <Font name="휴먼고딕" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox alignment="CENTER" prefWidth="455.0">
+               <children>
+                  <ImageView fx:id="ivRoomImg" fitHeight="213.0" fitWidth="415.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <Label text="옵션">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <FlowPane fx:id="fpRoomOptContainer" hgap="10.0" minHeight="100.0" prefWidth="200.0" vgap="10.0" />
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+   <padding>
+      <Insets top="5.0" />
+   </padding>
+</VBox>

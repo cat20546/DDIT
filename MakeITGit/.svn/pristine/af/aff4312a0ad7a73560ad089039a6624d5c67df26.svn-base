@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="351.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchRoom.view.OptRoomFilterController">
+   <children>
+      <Label layoutX="40.0" layoutY="38.0" text="추가 필터">
+         <font>
+            <Font name="휴먼고딕" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="74.0" text="중복선택이 가능합니다." textFill="SLATEGRAY">
+         <font>
+            <Font name="휴먼고딕" size="13.0" />
+         </font>
+      </Label>
+      <Separator layoutX="36.0" layoutY="273.0" prefHeight="16.0" prefWidth="615.0" />
+      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="541.0" layoutY="299.0" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #0080FF;" text="닫기" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXToggleNode fx:id="tnDesk" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="508.0" layoutY="115.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="책상" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tnBed" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="355.0" layoutY="115.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="침대" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tnWasher" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="205.0" layoutY="115.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="세탁기" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tbAir" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="52.0" layoutY="115.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="에어컨" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tbCloset" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="52.0" layoutY="186.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="옷장" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tnRef" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="355.0" layoutY="186.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="냉장고" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tnStove" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="508.0" layoutY="186.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="스토브" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+      <JFXToggleNode fx:id="tnTV" blendMode="HARD_LIGHT" focusTraversable="false" layoutX="205.0" layoutY="186.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #607080;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="TV" textFill="#8090a0">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXToggleNode>
+   </children>
+</AnchorPane>

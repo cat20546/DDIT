@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="myContractReiciveContainer" alignment="TOP_CENTER" minHeight="800.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.mypage.MyReceiveContractController">
+   <children>
+      <Label text="니방내방에서 계약을 완료하세요" textFill="#0080ff">
+         <font>
+            <Font name="휴먼고딕" size="28.0" />
+         </font>
+         <HBox.margin>
+            <Insets top="50.0" />
+         </HBox.margin>
+         <VBox.margin>
+            <Insets top="50.0" />           
+         </VBox.margin>
+      </Label>
+      <Separator prefWidth="200.0" style="-fx-background-color: #0088FF;">
+         <VBox.margin>
+            <Insets bottom="50.0" left="100.0" right="100.0" top="30.0" />
+         </VBox.margin>
+      </Separator>
+      <VBox fx:id="vbCenterContainer" minHeight="600.0" prefWidth="1380.0" spacing="50.0">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </VBox>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="10.0" left="100.0" right="100.0" top="10.0" />
+         </VBox.margin>
+      </Separator>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+         <children>
+            <JFXButton focusTraversable="false" onAction="#onContractClick" prefHeight="55.0" prefWidth="222.0" style="-fx-border-color: #0080FF; -fx-background-color: #0080FF;" text="방 계약하기" textFill="WHITE">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton focusTraversable="false" onAction="#onContractDeleteClick" prefHeight="55.0" prefWidth="248.0" style="-fx-border-color: #0080FF; -fx-background-color: #0080FF;" text="계약요청 삭제하기" textFill="WHITE">
+               <font>
+                  <Font name="휴먼고딕" size="24.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" style="-fx-background-color: #0088FF;">
+         <VBox.margin>
+            <Insets top="100.0" />
+         </VBox.margin>
+      </Separator>
+      <Label text="계약한 방">
+         <font>
+            <Font name="휴먼고딕" size="43.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="50.0" top="100.0" />
+         </VBox.margin>
+      </Label>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </Separator>
+      <VBox fx:id="vbCenterContainer2" minHeight="600.0" prefWidth="1380.0" spacing="50.0">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

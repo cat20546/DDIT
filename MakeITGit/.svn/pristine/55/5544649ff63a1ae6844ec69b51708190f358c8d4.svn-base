@@ -1,0 +1,89 @@
+package member.login;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import member.mailingSystem.Mail;
+import member.service.IMemberService;
+import member.service.MemberServiceImpl;
+
+public class FindPWController implements Initializable{	
+	
+	@FXML
+    private JFXTextField tfInputEmail;
+
+    @FXML
+    private JFXTextField tfInputId;
+
+    @FXML
+    private JFXButton btnRequestTempPw;
+
+    @FXML
+    void onClickExit(ActionEvent event) {
+    	((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+
+    @FXML
+    void onRequestTempPw(ActionEvent event) {
+    	String id = tfInputId.getText().trim();
+    	String email = tfInputEmail.getText().trim();
+    	
+    	IMemberService service = MemberServiceImpl.getInstance();
+    	Map<String, String> param1 = new HashMap<>();
+		param1.put("mem_id", id);
+		param1.put("mem_mail", email);
+    	int chk = service.checkCorrectEmail(param1);
+    	
+    	if(chk!=0) {
+    		char ch = 'a';
+    		String front = (char)(ch + (int)(Math.random()*25)) + "" +  (char)(ch + (int)(Math.random()*25));
+    		String emailIdNum = front+Integer.toString(((int)(Math.random()*8999+1000)));
+    		Map<String, String> param2 = new HashMap<>();
+    		param2.put("mem_id", id);
+    		param2.put("mem_pw", emailIdNum);
+    		int cnt = service.updateTempPw(param2);
+    		
+    		if(cnt>0) {
+    			
+    			String from = "ddhrdmakeit@gmail.com"; // 보내는 사람의 이메일
+    			String to = email; // 받는 사람의 이메일
+    			String cc = ""; //참조하는 이메일
+    			String subject = "새로운 임시 비밀번호입니다.";
+    			String content = (String)("귀하의 임시 비밀번호는"+"\n"+emailIdNum+"\n"+"입니다.");
+    			
+    			try {
+    				Mail mt = new Mail();
+    				mt.sendMail(from, to, cc, subject, content);
+    				
+    				Alert info = new Alert(AlertType.INFORMATION);
+    				info.setTitle("니방내방");
+    				info.setContentText("임시 비밀번호를 전송하였습니다.");
+    				info.showAndWait();
+    		    	((Node)(event.getSource())).getScene().getWindow().hide();
+    				
+    			} catch (Exception e) {
+    				System.out.println("메일 전송에 실패하였습니다.");
+    				System.out.println("실패 이유 : "+e.getMessage());
+    			}
+    		}
+    	}
+    }
+    
+    
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
+
+}

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+    <sqlMap namespace="member">
+
+
+    	<select id="getAllMember" resultClass="vo.MemberVO">
+    	select * 
+    	  from MEMBER
+    	</select>
+    	
+    	<select id="getAllAllMember" resultClass="vo.MemberVO">
+    	select *
+    		from MEMBER
+    		where mem_id = #mem_id#
+    	</select>
+    	
+    	<select id="checkDuplication" parameterClass="String" resultClass="Integer">
+    	
+    		select count(*) as cnt
+    		from MEMBER
+			where mem_id = #mem_id#
+    		
+    	</select>
+    	
+    	<insert id="signUp" parameterClass="vo.MemberVO">
+	    	insert into MEMBER
+			(mem_id, mem_pw, mem_name, mem_birth, mem_mail, mem_phone, mem_addr1, mem_addr2, mem_auth)
+			values (#mem_id#, #mem_pw#, #mem_name#, #mem_birth#, #mem_mail#, #mem_phone#, #mem_addr1#, #mem_addr2#, #mem_auth#)
+    	</insert>
+    	
+    	<insert id="adminInsert" parameterClass="vo.MemberVO">
+    		   insert into MEMBER
+			(mem_id, mem_pw, mem_name, mem_birth, mem_mail, mem_phone, mem_addr1, mem_addr2, mem_auth)
+			values (#mem_id#, #mem_pw#, #mem_name#, #mem_birth#, #mem_mail#, #mem_phone#, #mem_addr1#, #mem_addr2#, #mem_auth#)
+    	</insert>
+    	
+    	<select id="logIn" parameterClass="map" resultClass="vo.MemberVO">
+    		select *
+    		from MEMBER
+    		where 1=1
+    		and mem_id=#mem_id#
+    		and mem_pw=#mem_pw#
+    		AND mem_id NOT IN (
+    			SELECT mem_id FROM BLACKLIST)
+    	
+    	</select>
+    	<select id="isBlacklist" parameterClass="String" resultClass="vo.BlacklistVO">
+    		SELECT * FROM BLACKLIST
+    		WHERE mem_id = #mem_id#
+    	</select>
+    	
+    	<update id = "changePhone" parameterClass="vo.MemberVO">
+    		UPDATE MEMBER 
+    		SET mem_phone = #mem_phone#
+    		WHERE mem_id  = #mem_id#
+    	</update>
+    	
+    	<update id = "changePw" parameterClass="vo.MemberVO">
+    		UPDATE MEMBER 
+    		SET mem_pw = #mem_pw#
+    		WHERE mem_id = #mem_id#
+    	</update>
+   		
+   		<select id="getMyBoardList" parameterClass="String" resultClass="vo.BoardVO">
+   			SELECT *
+   			FROM BOARD
+   			WHERE MEM_ID = #MEM_ID#
+   			AND BOARD_CATEGORY='REVIEW'
+   		</select>
+    	
+    	<update id= "updateMember" parameterClass="vo.MemberVO">
+    	UPDATE MEMBER SET mem_name= #mem_name#,
+    				  	  mem_birth = #mem_birth#,
+    				  	  mem_mail = #mem_mail#,
+    				  	  mem_phone = #mem_phone#,
+    				  	  mem_addr1 = #mem_addr1#,
+    				  	  mem_addr2 = #mem_addr2#,
+    				  	  mem_auth = #mem_auth#
+    				  	 WHERE mem_id = #mem_id#
+    	</update>
+    	
+    	<delete id= "deleteMember" parameterClass="String">
+    	delete from MEMBER
+    		  where mem_id = #mem_id#
+    	</delete>
+		
+		<resultMap id="resultHashMap" class="java.util.HashMap">
+			<result property="mem_id" column="mem_id" javaType="java.lang.String" />
+			<result property="mem_name" column="mem_name" javaType="java.lang.String" />
+			<result property="realtor_id" column="realtor_id" javaType="java.lang.Integer" />
+			<result property="room_id" column="room_id" javaType="java.lang.Integer" />
+			<result property="room_name" column="room_name" javaType="java.lang.String" />
+			<result property="room_type" column="room_type" javaType="java.lang.String" />
+			<result property="room_price" column="room_price" javaType="java.lang.Integer" />
+			<result property="img_uri" column="img_uri" javaType="java.lang.String" />
+			<result property="contract_id" column="contract_id" javaType="java.lang.Integer" />
+			<result property="realtor_name" column="realtor_name" javaType="java.lang.String" />
+		</resultMap>
+
+		
+		<select id="getReceiveContract" parameterClass="String" resultMap="resultHashMap">
+			SELECT 	A.mem_id as mem_id,
+					A.mem_name as mem_name,
+					B.realtor_id as realtor_id,
+					C.ROOM_ID as room_id,
+					C.ROOM_NAME as room_name,
+					C.ROOM_TRANSACTION as room_type,
+					C.ROOM_PRICE as room_price,
+					D.IMG_URI as img_uri,
+					B.contract_id as contract_id,
+					E.realtor_office_name as realtor_name
+			FROM	MEMBER AS A,
+					CONTRACT AS B,
+					ROOM AS C,
+					ROOM_IMG D,
+					REALTOR E
+			WHERE 	A.mem_id = #mem_id#
+			AND 	B.mem_id = #mem_id#
+			AND 	B.room_id = C.room_id
+			AND 	B.contract_date IS NULL
+			AND		C.room_id = D.room_id 
+			AND		B.realtor_id = E.realtor_id
+			AND		C.is_delete = 0
+			GROUP BY C.room_id
+			
+		</select>
+		
+		<select id="getContract" parameterClass="String" resultMap="resultHashMap">
+			SELECT 	A.mem_id as mem_id,
+					A.mem_name as mem_name,
+					B.realtor_id as realtor_id,
+					C.ROOM_ID as room_id,
+					C.ROOM_NAME as room_name,
+					C.ROOM_TRANSACTION as room_type,
+					C.ROOM_PRICE as room_price,
+					D.IMG_URI as img_uri,
+					B.contract_id as contract_id,
+					E.realtor_office_name as realtor_name
+			FROM	MEMBER AS A,
+					CONTRACT AS B,
+					ROOM AS C,
+					ROOM_IMG D,
+					REALTOR E
+			WHERE 	A.mem_id = #mem_id#
+			AND 	B.mem_id = #mem_id#
+			AND 	B.room_id = C.room_id
+			AND 	B.contract_date IS NOT NULL
+			AND		C.room_id = D.room_id 
+			AND		B.realtor_id = E.realtor_id
+			GROUP BY C.room_id
+			
+		</select>
+		
+		<update id="newContract" parameterClass="map">
+			UPDATE  CONTRACT 
+			SET 	contract_period = #contract_period#,
+					contract_moving_in = #contract_moving_in#,
+					contract_date = #contract_date#
+			WHERE	contract_id = #contract_id#
+		</update>
+		
+		<insert id="addReview" parameterClass="vo.ReviewVO">
+			INSERT INTO REVIEW (review_title, review_content, review_date, review_img, mem_id, room_id)
+			VALUES (#review_title#, #review_content#, #review_date#, #review_img#, #mem_id#, #room_id#)
+			
+		</insert>
+		<select id="getMyReview" parameterClass="String" resultClass="vo.ReviewVO">
+			SELECT * FROM REVIEW
+			WHERE mem_id = #mem_id#
+		</select>
+		
+		<delete id="deleteReview" parameterClass="Integer">
+			DELETE FROM REVIEW
+			WHERE review_id = #review_id#
+		</delete>
+		
+		<update id="updateReview">
+			UPDATE REVIEW 
+			SET review_title = #review_title#,
+				review_content = #review_content#,
+				review_img = #review_img#
+			WHERE review_id = #review_id#
+		</update>
+		
+		<delete id="deleteContract" parameterClass="Integer">
+			DELETE FROM CONTRACT
+			WHERE room_id = #room_id#
+		</delete>
+		
+		
+		<update id= "deleteAccount" parameterClass="vo.MemberVO">
+	    	UPDATE MEMBER 
+    		SET mem_pw = 'DELETE'
+    		WHERE mem_id = #mem_id#
+    	</update>
+    	
+    	<parameterMap class="java.util.HashMap" id="idAndEmail">
+    		<parameter property="mem_id" javaType="java.lang.String"/>
+    		<parameter property="mem_mail" javaType="java.lang.String"/>
+    	</parameterMap>
+    	
+    	<select id="checkCorrectEmail" parameterClass="java.util.HashMap" resultClass="integer">
+    		select count(*) as cnt
+    		from MEMBER
+    		where mem_id = #mem_id#
+    		  and mem_mail = #mem_mail#
+    	
+    	</select>
+    	
+    	<parameterMap class="java.util.HashMap" id="setUpTempPw">
+    		<parameter property="mem_pw" javaType="java.lang.String"/>
+    		<parameter property="mem_id" javaType="java.lang.String"/>
+    	</parameterMap>
+    	
+    	<update id= "updateTempPw"  parameterClass="java.util.HashMap">
+	    	UPDATE MEMBER 
+    		SET mem_pw = #mem_pw#
+    		WHERE mem_id = #mem_id#
+    	</update>
+    	
+    	<select id="checkDeletedMember" parameterClass="String" resultClass="integer">
+    		select count(*) as cnt
+    		from MEMBER
+    		where mem_id = #mem_id# 
+    		  and mem_pw = 'DELETE'
+    	
+    	</select>
+		
+    	
+    </sqlMap>
+    

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchRoom.view.OptRoomSizeController">
+   <children>
+      <Label layoutX="34.0" layoutY="42.0" text="방크기">
+         <font>
+            <Font name="휴먼고딕" size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="167.0" prefHeight="16.0" prefWidth="293.0" />
+      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="117.0" layoutY="194.0" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #0080FF;" text="닫기" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXSlider fx:id="sdSize" blendMode="DARKEN" blockIncrement="20.0" focusTraversable="false" layoutX="34.0" layoutY="107.0" max="200.0" prefHeight="16.0" prefWidth="254.0" showTickLabels="true" value="200.0" />
+      <Label layoutX="226.0" layoutY="51.0" text="단위 : ㎡" textFill="#607080">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

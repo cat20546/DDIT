@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="351.0" prefWidth="321.0" styleClass="searchFilter" stylesheets="@../../res/css/styleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchRoom.view.OptRoomPriceController">
+   <children>
+      <Label layoutX="40.0" layoutY="38.0" text="월세">
+         <font>
+            <Font name="휴먼고딕" size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="272.0" prefHeight="16.0" prefWidth="293.0" />
+      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="117.0" layoutY="298.0" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #0080FF;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="닫기" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXSlider fx:id="sdMonth" blendMode="DARKEN" blockIncrement="20.0" focusTraversable="false" layoutX="40.0" layoutY="86.0" max="400.0" prefHeight="16.0" prefWidth="254.0" showTickLabels="true" value="400.0" />
+      <JFXSlider fx:id="sdFull" blendMode="DARKEN" blockIncrement="1000.0" focusTraversable="false" layoutX="40.0" layoutY="198.0" max="10000.0" prefHeight="16.0" prefWidth="254.0" showTickLabels="true" value="10000.0" />
+      <Label layoutX="40.0" layoutY="147.0" text="전세">
+         <font>
+            <Font name="휴먼고딕" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

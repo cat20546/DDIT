@@ -1,0 +1,315 @@
+package siteInfo.articlePage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXToggleNode;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import main.view.MainViewController;
+import siteInfo.comment.CommentListCellController;
+import siteInfo.service.ISiteInfoService;
+import siteInfo.service.ISiteInfoServiceImpl;
+import siteInfo.siteInfo.SiteInfoController;
+import siteInfo.siteInfoUpdate.SiteInfoUpdatePageController;
+import vo.BoardVO;
+import vo.CommentVO;
+import vo.MemberVO;
+
+public class ArticlePageController implements Initializable{
+	
+	MemberVO currentMember = MainViewController.getCurrentMember();
+	ISiteInfoService service = ISiteInfoServiceImpl.getInstance();
+	SiteInfoController sic = SiteInfoController.getInstance();
+	private static BoardVO currentBoardVO;
+	
+	public static BoardVO getCurrentBoardVO() {
+		return currentBoardVO;
+	}
+	
+	private static ArticlePageController articlePageController;
+	
+	public ArticlePageController() {
+		articlePageController=this;
+	}
+	
+	public static ArticlePageController getInstance() {
+		return articlePageController;
+	}
+	
+	@FXML
+    private Label lbArticleCategory;
+	
+	@FXML
+	private Label lbArticleTitle;
+	
+	@FXML
+	private JFXButton btnWriter;
+	
+	@FXML
+	private Label lbUploadDate;
+	
+	@FXML
+	private JFXButton btnEdit;
+	
+	@FXML
+	private JFXButton btnDelete;
+	
+	@FXML
+	private ImageView imageView;
+	
+	@FXML
+	private JFXTextArea taContent;
+
+    @FXML
+    private VBox vbCommentInputBox;
+	
+	@FXML
+	private VBox vbCommentBox;
+	
+    public VBox getVbCommentBox() {
+		return vbCommentBox;
+	}
+
+	public void setVbCommentBox(VBox vbCommentBox) {
+		this.vbCommentBox = vbCommentBox;
+	}
+
+	@FXML
+    private VBox vbArticle;
+
+    @FXML
+    private VBox vbArticleList;
+
+    @FXML
+    private JFXToggleNode btnAddComment;
+
+    @FXML
+    private VBox vbCommentList;
+    
+    
+    @FXML
+    void onAddComment(ActionEvent event) {
+    	if(btnAddComment.isSelected()) {
+    		try {
+    			FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("siteInfo/comment/InputComment.fxml"));
+    			Parent commentInputBoxNodes = loader.load();
+    			vbCommentInputBox.getChildren().add(commentInputBoxNodes);
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		}
+    	}else {
+    		vbCommentInputBox.getChildren().clear();
+    	}
+    }
+    
+    @FXML
+    void onBtnLeftAction(ActionEvent event) {
+    	if(current_page != 0) {
+			current_page--;
+			vbArticleList.getChildren().clear();
+			setBoardDataList(boardList);
+		}
+    }
+
+    @FXML
+    void onBtnRightAction(ActionEvent event) {
+    	if(current_page < max_page) {
+			if(boardList.size() - (max_page * SHOW_MAX_IDX) == 0 && current_page == max_page-1)
+				return;
+			
+			current_page++;
+			vbArticleList.getChildren().clear();
+			setBoardDataList(boardList);
+		}
+    }
+    
+    @FXML
+    void onEditBtn(ActionEvent event) {
+    	if(MainViewController.getCurrentMember().getMem_id().equals(currentBoardVO.getMem_id())) {
+    		try {
+    			FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("siteInfo/siteInfoUpdate/SiteInfoUpdatePage.fxml"));
+    			Parent SiteInfoUpdatePageNodes = loader.load();
+    			SiteInfoUpdatePageController apc = loader.getController();
+    			apc.setItem(currentBoardVO);
+    			BorderPane bp = sic.getBpSiteInfoContainer();
+    			bp.setCenter(SiteInfoUpdatePageNodes);
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		}
+    	}
+    }
+
+    @FXML
+    void onDeleteBtn(ActionEvent event) {
+    	if(MainViewController.getCurrentMember().getMem_id().equals(currentBoardVO.getMem_id())||MainViewController.getCurrentMember().getMem_id().equals("admin")) {
+    		Alert confirm = new Alert(AlertType.CONFIRMATION);
+			confirm.setTitle("경고");
+			confirm.setContentText("현재 게시글을 삭제하실겁니까?");
+
+			ButtonType btnResult = confirm.showAndWait().get();
+
+			if (btnResult == ButtonType.OK) {
+				ISiteInfoService service = ISiteInfoServiceImpl.getInstance();
+				int cnt = service.deleteArticle(currentBoardVO);
+
+				if (cnt>0) {
+					Alert info = new Alert(AlertType.INFORMATION);
+					info.setTitle("게시글 삭제");
+					info.setContentText("게시글을 성공적으로 삭제하였습니다.");
+					info.showAndWait();
+
+					try {
+						if(sic.getBtnNoticeBoard().isSelected()) {
+							FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("siteInfo/noticeBoard/NoticeBoard.fxml"));
+							Parent noticeBoardNodes = loader.load();
+							BorderPane currentContainer = sic.getBpSiteInfoContainer();
+							currentContainer.setCenter(noticeBoardNodes);
+						}else if(sic.getBtnFrequentQuestions().isSelected()) {
+							FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("siteInfo/frequentQuestion/FrequentQuestion.fxml"));
+							Parent fQBoardNodes = loader.load();
+							BorderPane currentContainer = sic.getBpSiteInfoContainer();
+							currentContainer.setCenter(fQBoardNodes);
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+    	}
+    }
+    
+    public void setCurrentBoardVO(BoardVO bv) {
+    	currentBoardVO = bv;
+    }
+    
+    /**
+     * 게시판
+     */
+	final int SHOW_MAX_IDX = 5;
+    int current_page = 0;
+	int max_page;
+	int max_idx;
+	ObservableList<BoardVO> boardList;
+	ObservableList<CommentVO> commentList;
+
+	public void setBoardDataList(ObservableList<BoardVO> list) {
+		max_page = this.boardList.size() / SHOW_MAX_IDX;
+		max_idx = SHOW_MAX_IDX;
+
+		if (current_page == max_page) {
+			max_idx = this.boardList.size() - (max_page * SHOW_MAX_IDX);
+		}
+
+		try {
+			FXMLLoader loader;
+			BoardCellController controller;
+			Parent parent;
+			int startIdx = SHOW_MAX_IDX * current_page;
+			vbArticleList.getChildren().clear();
+			for (int i = startIdx; i < startIdx + max_idx; i++) {
+				BoardVO bv = this.boardList.get(i);
+				loader = new FXMLLoader(getClass().getResource("/siteInfo/articlePage/BoardCell.fxml"));
+				parent = loader.load();
+				controller = loader.getController();
+				controller.setItem(bv, i);
+				vbArticleList.getChildren().add(parent);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setCommentList(ObservableList<CommentVO> list) {
+		
+		ISiteInfoService service = ISiteInfoServiceImpl.getInstance();
+		commentList = service.getCommentList(currentBoardVO.getBoard_id());
+		try {
+			FXMLLoader loader;
+			CommentListCellController controller;
+			Parent parent;
+			vbCommentList.getChildren().clear();
+			for (int i = 0; i < commentList.size(); i++) {
+				CommentVO cv = this.commentList.get(i);
+				loader = new FXMLLoader(getClass().getResource("/siteInfo/comment/CommentListCell.fxml"));
+				parent = loader.load();
+				controller = loader.getController();
+				controller.setItem(cv);
+				vbCommentList.getChildren().add(parent);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setItem(BoardVO bv) {
+		currentBoardVO = bv;
+		lbArticleCategory.setText(bv.getBoard_category()+"]");
+		lbArticleTitle.setText(bv.getBoard_title());
+		btnWriter.setText(bv.getMem_id());
+		lbUploadDate.setText(bv.getBoard_date().toString());
+		if(bv.getBoard_img()!=null) {
+			imageView.setFitWidth(500);
+			imageView.setFitHeight(400);
+			imageView.setImage(new Image(bv.getBoard_img()));
+		}
+		taContent.setText(bv.getBoard_content());
+//		int chk = service.checkCommentExist(bv.getBoard_id());
+//		if(chk>0) {
+//			try {
+//				articlePageController.getVbCommentBox().getChildren().clear();
+//				FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("siteInfo/comment/CommentBox.fxml"));
+//				Parent commentBoxNodes = loader.load();
+//				//articlePageController.getVbCommentBox().getChildren().add(commentBoxNodes);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+		if(bv.getBoard_category().equals("공지사항")) {
+			boardList = service.getNoticeBoardList();
+		}else if(bv.getBoard_category().equals("자주 묻는 질문")) {
+			boardList = service.getFrequentQustionBoardList();
+		}
+		setBoardDataList(boardList);
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+//		try {
+//			FXMLLoader commentBoxLoader = new FXMLLoader(getClass().getClassLoader().getResource("siteinfo/comment/CommentBox.fxml"));
+//			Parent commentBoxNodes = commentBoxLoader.load();
+//			vbCommentBox.getChildren().add(commentBoxNodes);
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		if(currentMember == null) {
+			return;
+		}
+		
+		
+		if(currentMember.getMem_auth().trim().equals("admin")) {
+			btnEdit.setVisible(true);
+			btnEdit.setDisable(false);
+			btnDelete.setVisible(true);
+			btnDelete.setDisable(false);
+		}
+		
+	}
+}

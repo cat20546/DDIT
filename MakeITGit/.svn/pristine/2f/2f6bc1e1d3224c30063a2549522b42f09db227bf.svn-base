@@ -1,0 +1,51 @@
+.sidebar{
+	-fx-background-color:#353535;
+}
+
+.sidebar-user-btn{
+	-fx-background-color: transparent;
+	-fx-background-radius: 0px;
+	-fx-text-fill: #b8b1b1;
+}
+
+.sidebar-btn{
+	-fx-background-color: transparent;
+	-fx-background-radius: 0px;
+	-fx-text-fill: #b8b1b1;
+}
+
+.sidebar-btn:hover{
+	-fx-background-color: transparent;
+	-fx-background-radius: 0px;
+	-fx-border-color: rgb(22,169,250);
+	-fx-border-width: 0px 0px 0px 3px;
+}
+
+.sidebar-btn:pressed {
+	-fx-background-color: #9B50BA;
+	-fx-background-radius: 0px;
+}
+
+.top_border {
+	-fx-border-color: #EDEDED;
+	-fx-border-width: 0px 0px 1px 0px;
+}
+
+.borderpane {
+	-fx-background-color: white;
+}
+
+.main-Label {
+	-fx-font-family : "-윤고딕330";
+	-fx-font-size:22;
+}
+
+.sidebar-top-vbox{
+	-fx-background-color: linear-gradient(to right, #da51b8, #544fbb)!important;
+}
+
+.center-background{
+	-fx-background-color:#EAEAEA;
+	-fx-border-color: #ccc4c4;
+	-fx-border-width: 1.5px 0px 0px 0px;
+}

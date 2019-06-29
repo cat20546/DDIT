@@ -1,0 +1,21 @@
+
+.button {
+    -fx-text-fill: #888888;
+    -fx-font-family: "-윤고딕350";
+    -fx-background-color: white;
+    -fx-font-weight:bold;
+    -fx-font-size: 16px;
+}
+
+.btnMainTop{
+	-fx-font-size: 18px;
+}
+.button:hover {
+    -fx-text-fill: #006cff;
+    
+}
+
+.searchRoomOption{
+	-fx-border-color:#CCCCCC;
+}
+

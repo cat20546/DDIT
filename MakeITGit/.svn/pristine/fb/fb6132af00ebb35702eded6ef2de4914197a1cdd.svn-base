@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siteInfo.comment.CommentListCellController">
+   <children>
+      <HBox fx:id="boardCell" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="980.0">
+         <children>
+            <Label fx:id="lbName" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="150.0" text="글쓴이" textFill="#404040">
+               <font>
+                  <Font name="휴먼고딕" size="15.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="tfContent" editable="false" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="35.0" prefWidth="500.0" text="내용">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <Label fx:id="lbDate" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="180.0" text="작성날짜" textFill="#404040">
+               <font>
+                  <Font name="휴먼고딕" size="15.0" />
+               </font>
+            </Label>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="130.0" spacing="5.0">
+               <children>
+                  <JFXButton fx:id="btnCmt" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onBtnCmt" prefHeight="35.0" prefWidth="40.0" text="cmt" textFill="#404040" visible="false" />
+                  <JFXButton fx:id="btnEdit" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onBtnEdit" prefHeight="35.0" prefWidth="40.0" text="Edt" textFill="#404040" visible="false" />
+                  <JFXButton fx:id="btnDel" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onBtnDel" prefHeight="35.0" prefWidth="40.0" text="Del" textFill="#404040" visible="false" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <VBox fx:id="vbCmt" alignment="TOP_CENTER" />
+   </children>
+</VBox>

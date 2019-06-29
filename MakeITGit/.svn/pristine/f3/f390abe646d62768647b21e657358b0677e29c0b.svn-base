@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="owner.companyIntro.CompanyIntroController" prefHeight="1700.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="900.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/companyintro_img/companyintro.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="pdf" layoutX="715.0" layoutY="400.0" prefHeight="44.0" prefWidth="181.0" text="　" />
+      <ImageView fitHeight="900.0" fitWidth="1600.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/companyintro_img/companyintro2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="900.0" fitWidth="1600.0" layoutY="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/companyintro_img/companyintro3.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

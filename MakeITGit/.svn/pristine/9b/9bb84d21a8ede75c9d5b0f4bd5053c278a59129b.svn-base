@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- namespace속성 : 아래에서 작성한 SQL을 호출할 때 같이 사용된다. -->			
+<sqlMap namespace="Test">
+	
+
+	<select id="getAllRoom" resultClass="RoomVO">
+		SELECT * 
+		FROM ROOM
+		WHERE room_id NOT IN(
+			SELECT room_id FROM CONTRACT
+			WHERE contract_period IS NOT NULL)
+		AND is_delete = 0
+	</select>
+	<select id="getAllRoomImg" resultClass="RoomImgVO" parameterClass="Integer">
+		SELECT IMG_ID, ROOM_ID, IMG_URI FROM ROOM_IMG
+		WHERE ROOM_ID = #int#
+	</select>
+	
+	<insert id="addSearchLog" parameterClass="vo.SearchLogVO">
+		INSERT INTO SEARCH_LOG(search_date, mem_id, room_id) 
+		VALUES(#search_date#, #mem_id#, #room_id#)
+	</insert>
+	
+	<select id="getAdminRoom" resultClass="vo.MemberVO" parameterClass="String">
+	   select *
+  		from MEMBER
+       where MEM_ID = #mem_id#
+    </select>
+	
+	
+	<update id= "updateRoom" parameterClass="vo.RoomVO">
+    	update ROOM set 
+		  	    ROOM_TYPE = #room_type#,
+                ROOM_ADDR1 = #room_addr1#,
+                ROOM_ADDR2 = #room_addr2#,
+    		    ROOM_NAME = #room_name#,
+                ROOM_TRANSACTION = #room_transaction#,
+                ROOM_COMMENT = #room_comment#,
+                ROOM_SIZE = #room_size#,
+                ROOM_FLOOR = #room_floor#,
+                ROOM_MY_FLOOR = #room_my_floor#,
+                ROOM_HEATING_SYSTEM = #room_heating_system#,
+                ROOM_AVAILABLE = #room_available#,
+                ROOM_PRICE = #room_price#,
+                room_deposit = #room_deposit#,
+                OPT_AIRCONDITIONER = #opt_airconditioner#,
+                OPT_WASHER = #opt_washer#,
+                OPT_BED = #opt_bed#,
+                OPT_DESK = #opt_desk#,
+                OPT_CLOSET =#opt_closet#,
+                opt_tv = #opt_tv#,
+                OPT_REFREGERATOR = #opt_refregerator#,
+                OPT_STOVE = #opt_stove#,
+                OPT_PET_AVAILABILLITY = #opt_pet_availabillity#,
+                OPT_PARKING_LOT = #opt_parking_lot#,
+                OPT_VERANDA = #opt_veranda#,
+                OPT_LEASE_FUND = #opt_lease_fund#
+                where room_id = #room_id#
+    	</update>
+    	
+    	<update id= "updateImg" parameterClass="vo.RoomImgVO">
+    		update ROOM_IMG set
+    				IMG_URI = #img_uri#
+    				where img_id = #img_id#
+    	</update>
+</sqlMap>			
+
+
+
+
+

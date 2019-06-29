@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="900.0" prefWidth="1600.0" style="-fx-alignment: CENTER; -fx-background-color: #EEEEEE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="owner.login.OwnerLoginController">
+   <children>
+      <VBox layoutX="784.0" layoutY="262.0" prefHeight="800.0" prefWidth="613.0" style="-fx-background-color: #FFFFFF; -fx-alignment: TOP_CENTER;">
+         <HBox.margin>
+            <Insets bottom="50.0" top="50.0" />
+         </HBox.margin>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="본인인증으로 로그인을 해주세요." textAlignment="CENTER" wrappingWidth="217.78125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" top="80.0" />
+               </VBox.margin>
+            </Text>
+            <JFXTextField id="tfName" promptText="이름">
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXTextField>
+            <HBox>
+               <children>
+                  <JFXTextField id="tfName" prefHeight="44.0" prefWidth="337.0" promptText="생년월일(예.19951227)">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="100.0" right="300.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXToggleNode prefHeight="48.0" prefWidth="87.0" selected="true" style="-fx-border-color: #EEEEEE;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="남자">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </JFXToggleNode>
+                  <JFXToggleNode prefHeight="48.0" prefWidth="87.0" style="-fx-border-color: #EEEEEE;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="여자" toggleGroup="$gender" />
+               </children>
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="259.0" prefWidth="519.0">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="100.0" right="100.0" top="50.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefWidth="519.0" style="-fx-alignment: CENTER_LEFT; -fx-border-color: #EEEEEE;">
+                     <children>
+                        <JFXCheckBox text=" " />
+                        <Label text="본인인증 약관 전체동의">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <VBox style="-fx-border-color: #EEEEEE;">
+                     <children>
+                        <HBox prefWidth="519.0" style="-fx-alignment: CENTER_LEFT;">
+                           <children>
+                              <JFXCheckBox text=" " />
+                              <Label text="개인정보 수집/이용 동의">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefWidth="519.0" style="-fx-alignment: CENTER_LEFT;">
+                           <children>
+                              <JFXCheckBox text=" " />
+                              <Label text="고유식별번호 처리 동의">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefWidth="519.0" style="-fx-alignment: CENTER_LEFT;">
+                           <children>
+                              <JFXCheckBox text=" " />
+                              <Label text="통신사 이용약관 동의">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefWidth="519.0" style="-fx-alignment: CENTER_LEFT;">
+                           <children>
+                              <JFXCheckBox text=" " />
+                              <Label text="서비스 이용약관 동의">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefWidth="519.0" style="-fx-alignment: CENTER_LEFT;">
+                           <children>
+                              <JFXCheckBox text=" " />
+                              <Label text="개인정보 제3자 제공 동의">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <JFXButton prefHeight="44.0" prefWidth="201.0" style="-fx-background-color: #5882FA;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="다음" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+   </children>
+</HBox>

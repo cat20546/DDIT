@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siteInfo.frequentQuestion.FrequentQuestionController">
+   <children>
+      <HBox prefHeight="2.0" prefWidth="1580.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="question-border-box" stylesheets="@../../res/css/styleSheet.css">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" text="니방내방 이용자분들의 편의를 위해 ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" text="자주 묻는 질문과 답변" textFill="#0080ff">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" text="을 모아놓았습니다.">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="90.0" spacing="10.0" />
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" text="원하시는 질문을 찾아보세요!">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="90.0" spacing="10.0" />
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" top="50.0" />
+         </padding>
+      </VBox>
+      <HBox prefHeight="1.0" prefWidth="1580.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="1380.0">
+         <children>
+            <JFXTextField fx:id="tfSearch" focusColor="#242425" onAction="#onSearchTyped" prefHeight="40.0" prefWidth="240.0" promptText="  Search" styleClass="question-search" stylesheets="@../../res/css/styleSheet.css" unFocusColor="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox fx:id="vbBoardContainer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1380.0" spacing="10.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" prefWidth="1580.0" spacing="50.0">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="300.0">
+               <children>
+                  <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onBtnLeftAction" prefHeight="53.0" prefWidth="100.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="&lt;" textFill="#ababab">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onBtnRightAction" prefHeight="53.0" prefWidth="100.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="&gt;" textFill="#ababab">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefWidth="400.0">
+               <children>
+                  <JFXButton fx:id="btnNewFQ" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onNewFQ" opacity="0.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #0080ff;" text="자주 묻는 질문 작성" textFill="#0080ff" />
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="100.0" right="100.0" top="30.0" />
+   </padding>
+</VBox>

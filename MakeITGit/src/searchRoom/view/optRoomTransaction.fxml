@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="351.0" prefWidth="321.0" styleClass="searchFilter" stylesheets="@../../res/css/styleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchRoom.view.OptRoomTransactionController">
+   <children>
+      <Label layoutX="40.0" layoutY="38.0" text="매물종류">
+         <font>
+            <Font name="휴먼고딕" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="74.0" text="중복선택이 가능합니다." textFill="SLATEGRAY">
+         <font>
+            <Font name="휴먼고딕" size="13.0" />
+         </font>
+      </Label>
+      <JFXCheckBox fx:id="cbMonth" checkedColor="#0080ff" focusTraversable="false" layoutX="41.0" layoutY="135.0" selected="true" text="월세">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox fx:id="cbFull" checkedColor="#0080ff" focusTraversable="false" layoutX="40.0" layoutY="171.0" selected="true" text="전세">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox fx:id="cbTrade" checkedColor="#0080ff" focusTraversable="false" layoutX="40.0" layoutY="209.0" selected="true" text="매매">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXCheckBox>
+      <Separator layoutX="14.0" layoutY="272.0" prefHeight="16.0" prefWidth="293.0" style="-fx-background-color: #FFFFFF;" />
+      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="117.0" layoutY="298.0" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #0080FF;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="닫기" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="21.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

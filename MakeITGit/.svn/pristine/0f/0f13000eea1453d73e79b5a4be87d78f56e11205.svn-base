@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siteInfo.inquiry.InquiryController">
+   <top>
+      <VBox alignment="CENTER" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="950.0" />
+            <VBox alignment="CENTER" minWidth="1400.0" prefWidth="1250.0" spacing="10.0" styleClass="question-border-box" stylesheets="@../../res/css/styleSheet.css">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="고객센터 이메일" textFill="#515151">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="ddhrdmakeit@gmail.com" textFill="#0080ff">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="150.0" style="-fx-background-color: #b5b5b5;" />
+                  <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="평일 10:00 ~ 18:30 (토, 일요일, 공휴일 휴무)" textFill="#515151">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="80.0" top="80.0" />
+               </padding>
+            </VBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="950.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding></VBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="950.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="950.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="제목">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="tfIquiryTitle" focusColor="WHITE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="830.0" styleClass="inquiry-title-border" stylesheets="@../../res/css/styleSheet.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font></JFXTextField>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="950.0" style="-fx-background-color: #cccccc;" />
+            <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="950.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="문의내용">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextArea fx:id="tfIquiryContent" focusColor="WHITE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="830.0" promptText="내용을 입력하세요" styleClass="inquiry-content-border" stylesheets="@../../res/css/styleSheet.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </JFXTextArea>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="950.0" style="-fx-background-color: #BDBDBD;" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXButton fx:id="btnSendInquiry" onAction="#onSendInquiry" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: #0080ff;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="전송하기" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="150.0" />
+         </padding>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label text="니방내방만의 시스템" textFill="#404040">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="관리자와의" textFill="#404040">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="1:1 문의" textFill="#0080ff">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="btnRequestChat" onAction="#onRequestChat" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0080ff;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="채팅신청" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="30.0" right="20.0" top="50.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

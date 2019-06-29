@@ -1,0 +1,218 @@
+/* 폰트 */
+.font {
+	-fx-font-family :"BMHANNAPRO";
+}
+
+/* 메인페이지 탑 */
+.main-top-border {
+	-fx-border-color : #D5D5D5;
+	-fx-border-width: 1px 0px 1px 0px;
+}
+
+/* 메인페이지 방찾기버튼 */
+.main-search-btn {
+	-fx-border-color: transparent;
+	-fx-background-color: #2E9AFE;
+	-fx-text-fill : white;
+}
+/* 등록 */
+.reg-btn {
+	-fx-border-color: transparent;
+	-fx-background-color: #2d5eff;
+	-fx-text-fill :  white;
+}
+/* 삭제 */
+.delete-btn{
+	-fx-border-color: transparent;
+	-fx-background-color: #FF0000;
+	-fx-text-fill : white;
+}
+/* 취소 */
+.cancel-btn {
+	-fx-border-color: black;
+	-fx-background-color : white;
+	-fx-text-fill : black;
+}
+
+/* separator */
+.separator {
+	-fx-border-color : transparent;
+	-fx-background-color : #BDBDBD;
+}
+
+/* 메인페이지 검색 텍스트필드 */
+.main-text-field {
+	-fx-border-color:#D5D5C8;
+	-fx-background-color:white;
+	
+	}
+
+/*마우스 클릭 */
+.mouse-hover{
+	 -fx-cursor: hand;
+}
+
+/* 방 이미지 */
+.cell-border{
+	 -fx-border-radius:10;
+	 -fx-background-radius:10;
+	 -fx-text-fill: #2196f3;
+}
+	 
+.cell-bottom-line {
+	-fx-focus-color: transparent;
+}
+
+.cell-border:hover{
+	 -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.3) , 10, 0 , 3, 3);
+}
+
+.cell-border:pressed{
+	 -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.3) , 10, 0 , 3, 3);
+	 -fx-background-color: white;
+	 -tf-rotate:10;
+
+}
+
+/*스크롤 */
+.scrollpane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scrollpane:focused {
+    -fx-background-insets: 0;
+}
+
+.scrollpane.corner {
+    -fx-background-insets: 0;
+}
+
+/*플로우 페인 */
+.flowpane {
+	-fx-background-color:white;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.flowpane:focused {
+    -fx-background-insets: 0;
+}
+
+.flowpane.corner {
+    -fx-background-insets: 0;
+}
+
+/* 방주인 버튼 */
+.btn-ownerr {
+	-fx-background-color : #2E9AFE;
+	-fx-border-color :  #2E9AFE;
+	-fx-text-color : white;
+}
+
+.btn-ownerr:hover {
+    -fx-border-width: 3px 3px 3px 3px;
+	-fx-border-radius:3;
+	-fx-border-color :  white;
+	-fx-background-color : transparent;
+	-fx-text-fill : white;
+}
+
+.btn-owner {
+	-fx-background-color : #2E9AFE;
+	-fx-text-color : #2E9AFE;
+}
+
+.btn-owner:hover {
+	-fx-border-width: 3px 3px 3px 3px;
+	-fx-border-radius:1;
+	-fx-border-color :  #2E9AFE;
+	-fx-background-color : white;
+	-fx-text-fill : #2E9AFE;
+}
+
+/*방찾기 버튼 */
+.btn-searchRoom {
+	-fx-border-color:#EAEAEA;
+	-fx-border-width: 1px 1px 1px 1px;
+	-fx-background-color:white;
+	-fx-text-fill:#EAEAEA;
+}
+
+.btn-searchRoom:hover{
+	-fx-border-color:#EAEAEA;
+	-fx-border-width: 1px 1px 1px 1px;
+	-fx-border-radius:5;
+	-fx-background-color:#EAEAEA;
+	-fx-text-color:#EAEAEA;
+}
+	
+.search-search {
+	-fx-border-color: #EAEAEA;
+	-fx-background-color:white;
+	
+}
+
+
+/* 검색필터 */
+.searchFilter { 
+ -fx-border-color:#EAEAEA;
+ -fx-background-color:white;
+ -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.2) , 10, 0 , 3, 3);
+}
+
+/*자주묻는 질문 */
+.question-search {
+ -fx-border-color:#EAEAEA;
+}
+ 
+.question-cell-border {
+ 	-fx-border-width : 0px 0px 1px 0px;
+	-fx-border-color : #D5D5D5;
+}
+
+.question-border-box {
+	-fx-border-color : #BDBDBD;
+	-fx-border-width : 1px 0px 1px 0px;
+}
+
+/* 사이트인포 헤더 (자주묻는질문, 1:1문의, 공지사항) */
+
+
+
+.siteInfo-header:hover {
+	-fx-border-width : 0px 0px 2px 0px;
+	-fx-background-color : white;
+}
+
+/* 문의 사항 */
+.inquiry-title-border {
+	-fx-border-width : 1px 1px 1px 1px;
+	-fx-border-color : #BDBDBD;
+	-fx-focus-color: transparent;
+}
+
+.inquiry-content-border {
+	-fx-border-width : 1px 1px 1px 1px;
+	-fx-border-color : #BDBDBD;
+	-fx-focus-color: transparent;
+}
+
+/* Articlepage */
+
+.Article-all-border {
+	-fx-border-width : 1px 0px 1px 0px;	
+}
+
+/* 공지사항 */
+.notice-cell-boder {
+	-fx-border-width : 0px 0px 1px 0px;
+	-fx-border-color : #D5D5D5;
+}
+
+.notice-border-box {
+	-fx-border-color : #BDBDBD;
+	-fx-border-width : 1px 0px 1px 0px;
+}
+
+

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="owner.main.OwnerMainController">
+   <content>
+      <BorderPane fx:id="bpOwnerContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="900.0" minWidth="1600.0" prefWidth="1600.0" style="-fx-background-color: #FFFFFF;">
+         <top>
+            <HBox prefHeight="75.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="75.0" prefWidth="1134.0" style="-fx-alignment: CENTER_LEFT;">
+                     <children>
+                        <ImageView fx:id="ivOwnerLogo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/logo.png" />
+                           </image>
+                        </ImageView>
+                        <JFXButton fx:id="btnGotoMain" focusTraversable="false" onAction="#onGotoMainClick" prefHeight="60.0" prefWidth="164.0" style="-fx-border-color: #cecece;" text="니방내방으로 이동">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </HBox>
+                  <StackPane>
+                     <children>
+                        <HBox fx:id="hbLogout" prefHeight="100.0" prefWidth="600.0" spacing="20.0" style="-fx-alignment: CENTER_RIGHT;">
+                           <children>
+                              <JFXButton fx:id="btnOwnerGuide" focusTraversable="false" onAction="#onOwnerGuideClick" prefHeight="44.0" prefWidth="131.0" style="-fx-border-color: #cecece;" text="방주인 소개">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnOwnerLogin" focusTraversable="false" onAction="#onOwnerLoginClick" prefHeight="43.0" prefWidth="89.0" style="-fx-border-color: #cecece;" text="로그인">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbLogin" prefHeight="100.0" prefWidth="600.0" spacing="20.0" style="-fx-alignment: CENTER_RIGHT;" visible="false">
+                           <children>
+                              <JFXButton fx:id="btnMyRoom" focusTraversable="false" onAction="#oMyRoomClick" prefHeight="43.0" prefWidth="137.0" style="-fx-border-color: #cecece;" text="내가 올린 공실">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnOwnerRegister" focusTraversable="false" onAction="#onRoomRegisterClick" prefHeight="43.0" prefWidth="137.0" style="-fx-border-color: #cecece;" text="공실 등록하기">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fx:id="ivOwnerIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/N.png" />
+                                 </image></ImageView>
+                              <JFXButton fx:id="btnOwnerLogout" onAction="#onOwnerLogoutClick" prefHeight="43.0" prefWidth="89.0" style="-fx-border-color: #cecece;" text="로그아웃">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <VBox fx:id="vbMainContainer" prefHeight="1897.0" prefWidth="1590.0">
+               <children>
+                  <StackPane prefHeight="469.0" prefWidth="1590.0">
+                     <children>
+                        <ImageView fx:id="ivOwnerMain" fitHeight="471.0" fitWidth="1617.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/ownerMain.png" />
+                           </image>
+                        </ImageView>
+                        <VBox prefWidth="1590.0" style="-fx-alignment: TOP_CENTER;">
+                           <children>
+                              <Label id="boldLabel" text="공실 광고 니방내방에서 무제한 무료" textFill="WHITE">
+                                 <font>
+                                    <Font name="휴먼고딕" size="45.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label styleClass="ownerLabel" text="방주인에 제한없이 공실 등록하고 무료로 광고하세요." textFill="WHITE">
+                                 <font>
+                                    <Font name="휴먼고딕" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label styleClass="ownerLabel" text="니방내방에 광고를 원하시면 지금 당장 방주인을 시작하세요." textFill="WHITE">
+                                 <font>
+                                    <Font name="휴먼고딕" size="22.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton focusTraversable="false" onAction="#onRoomRegisterClick" prefHeight="51.0" prefWidth="302.0" style="-fx-background-color: #2E9AFE;" text="방주인 시작하기" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                           <padding>
+                              <Insets top="50.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <HBox prefHeight="302.0" prefWidth="1590.0" spacing="60.0" style="-fx-alignment: CENTER; -fx-background-color: #FFFFFF;">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="230.0" spacing="30.0" style="-fx-alignment: CENTER;">
+                           <children>
+                              <ImageView fx:id="ivOwnerAdver1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/ownerGuide1.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="소유하고 있는 공실을  방주인에 등록하기" textAlignment="CENTER" wrappingWidth="205.390625">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="개수 제한 없이 무제한 공실 등록 가능" textAlignment="CENTER" wrappingWidth="179.390625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="230.0" spacing="30.0" style="-fx-alignment: CENTER;">
+                           <children>
+                              <ImageView fx:id="ivOwnerAdver2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/ownerGuide1.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="니방내방 중개사무소를 통해 매물 공개" textAlignment="CENTER" wrappingWidth="205.390625">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="해당 공실의 소유자 확인 후 공실 주변에 있는다방 파트너 공인중개사에게서 공실 공개" textAlignment="CENTER" wrappingWidth="227.390625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="230.0" spacing="30.0" style="-fx-alignment: CENTER;">
+                           <children>
+                              <ImageView fx:id="ivOwnerAdver3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/ownerGuide1.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="공실 1개 당 최대 3곳의중개사무소에서 광고 집행" textAlignment="CENTER" wrappingWidth="226.390625">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="관심 있는 중개사무소가해당 공실을 니방내방에 광고" textAlignment="CENTER" wrappingWidth="179.390625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="230.0" spacing="30.0" style="-fx-alignment: CENTER;">
+                           <children>
+                              <ImageView fx:id="ivOwnerAdver4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/ownerGuide1.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="방주인에서 실시간으로내가 올린 공실 현황 확인하기" textAlignment="CENTER" wrappingWidth="205.390625">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="공실 광고, 노출 정보 및 현황 등방주인에서 실시간으로 확인" textAlignment="CENTER" wrappingWidth="179.390625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox prefWidth="1590.0" style="-fx-background-color: #e5edf8; -fx-alignment: TOP_CENTER;">
+                     <children>
+                        <HBox prefHeight="188.0" prefWidth="1590.0" style="-fx-alignment: CENTER;">
+                           <children>
+                              <VBox spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="서비스 이용료와 광고비, 모두 무료">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="보유한 건물의 수와 호수 제한없이 관리와 광고 요청까지모든 서비스 무료! 공실이 나올때 다방에 광고하는 것도 무료로 진행하세요" wrappingWidth="459.546875">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="니방내방의 전문 기획자들이 만든 임대관리솔루션">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="니방내방을 만든 전문가들이임대인을 위해 새롭게 선보이는 서비스! 편안한 UI와 기능을 보장합니다" wrappingWidth="459.546875">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="188.0" prefWidth="1590.0" style="-fx-alignment: CENTER;">
+                           <children>
+                              <VBox spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="믿을 수 있는 니방내방의 파트너 공인중개사">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="방주인을 통해 신뢰도 높은 중개사들을 연결, 임대인과 임차인 모두만족할 수 있는 서비스를 만들어갑니다." wrappingWidth="459.546875">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="다방에 신뢰도 높은 매물로 노출! 공실걱정 제로!  ">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="방주인을 통해 임대인이 직접 올린 공실은 다방에서 최상단 우선노출 됩니다.임차인에게 신뢰를 주니 계약률도 높아집니다." wrappingWidth="459.546875">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="448.0" prefWidth="1590.0" spacing="10.0" style="-fx-alignment: CENTER;">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="공실로 고민하고 있다면?" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="방주인 서비스 지금 시작하세요!">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                        <JFXButton focusTraversable="false" onAction="#btnStartOwner" prefHeight="51.0" prefWidth="302.0" style="-fx-background-color: #2E9AFE;" text="방주인 시작하기" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="259.0" fitWidth="989.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/cont.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="15.0" left="300.0" top="15.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

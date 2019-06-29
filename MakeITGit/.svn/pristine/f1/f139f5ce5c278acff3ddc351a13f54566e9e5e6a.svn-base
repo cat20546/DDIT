@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="842.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.mypage.MemberReviewViewController">
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="842.0" style="-fx-background-color: #0080FF;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton focusTraversable="false" onAction="#onUpdateClick" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 8px;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="리뷰 수정" textFill="WHITE">
+               <font>
+                  <Font name="NanumSquare Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton focusTraversable="false" onAction="#onDeleteClick" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 8px;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="리뷰 삭제" textFill="WHITE">
+               <font>
+                  <Font name="NanumSquare Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton focusTraversable="false" onAction="#onExitClick" prefHeight="46.0" prefWidth="73.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="EXIT" textFill="WHITE">
+               <font>
+                  <Font name="NanumGothicExtraBold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField fx:id="tfTitle" editable="false" layoutX="87.0" layoutY="45.0" prefHeight="23.0" prefWidth="668.0" promptText="리뷰 제목">
+               <font>
+                  <Font name="휴먼고딕" size="17.0" />
+               </font>
+            </JFXTextField>
+            <ScrollPane layoutX="86.0" layoutY="136.0" prefViewportHeight="327.0" prefViewportWidth="670.0">
+               <content>
+                  <VBox fx:id="vbCenterContainer" layoutX="86.0" layoutY="136.0" prefHeight="600.0" prefWidth="670.0">
+                     <children>
+                        <FlowPane fx:id="fpCenterContainer" prefHeight="200.0" prefWidth="200.0" styleClass="flowpane" stylesheets="@../../res/css/styleSheet.css">
+                           <children>
+                              <JFXTextArea fx:id="taContent" editable="false" focusColor="WHITE" prefHeight="800.0" prefWidth="670.0" style="-fx-background-color: #FFFFFF;" unFocusColor="WHITE" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <JFXButton fx:id="btnImg" disable="true" layoutX="86.0" layoutY="94.0" onAction="#onImageClick" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 8px;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="이미지 삽입" textFill="WHITE">
+               <font>
+                  <Font name="NanumSquareRound Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="lbDate" layoutX="631.0" layoutY="97.0" text="yyyy/mm/dd" textFill="#607080">
+               <font>
+                  <Font name="NanumSquare Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="550.0" layoutY="97.0" text="작성날짜 : " textFill="#607080">
+               <font>
+                  <Font name="NanumSquare Regular" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnCommit" disable="true" layoutX="671.0" layoutY="504.0" onAction="#onCommitClick" prefHeight="28.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 8px;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="리뷰 수정" textFill="WHITE">
+               <font>
+                  <Font name="NanumSquareRound Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Separator layoutX="88.0" layoutY="14.0" prefHeight="17.0" prefWidth="672.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

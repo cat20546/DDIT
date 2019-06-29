@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+    <sqlMap namespace="room">
+    
+   <insert id="insertroom" parameterClass="RoomVO">
+	insert into ROOM(room_type,
+					 room_transaction,
+					 room_size,
+					 room_floor,
+					 room_my_floor,
+					 room_heating_system,
+					 room_available,
+					 room_name,
+					 room_comment,
+					 room_price,
+					 room_deposit,
+					 room_addr1,
+					 room_addr2,
+					 Opt_parking_lot,
+					 opt_pet_availabillity,
+					 opt_veranda,
+					 opt_lease_fund,
+					 opt_airconditioner,
+					 opt_washer,
+					 opt_bed,
+					 opt_desk,
+					 opt_closet,
+					 opt_tv,
+					 opt_refregerator,
+					 opt_stove,
+					 mem_id
+					 ) 
+        values(#room_type#,
+        	   #room_transaction#,
+        	   #room_size#,
+        	   #room_floor#,
+        	   #room_my_floor#,
+        	   #room_heating_system#,
+        	   #room_available#,
+        	   #room_name#,
+        	   #room_comment#,
+        	   #room_price#,
+        	   #room_deposit#,
+        	   #room_addr1#,
+        	   #room_addr2#,
+        	   #opt_parking_lot#,
+        	   #opt_pet_availabillity#,
+        	   #opt_veranda#,
+        	   #opt_lease_fund#,
+        	   #opt_airconditioner#,
+			   #opt_washer#,
+			   #opt_bed#,
+			   #opt_desk#,
+        	   #opt_closet#,
+        	   #opt_tv#,
+        	   #opt_refregerator#,
+        	   #opt_stove#,
+        	   #mem_id#
+        	   )
+    </insert>
+    
+    <select id="getCurrentRoomId" resultClass="Integer">
+    	SELECT MAX(room_id) FROM ROOM
+    	WHERE is_delete = 0
+    </select>
+    
+    
+    <insert id="insertRoomImage" parameterClass="RoomImgVO">
+    insert into ROOM_IMG(img_uri,room_id)
+    	 values (#img_uri#,#room_id#)
+    </insert>
+    
+    <select id="getAllMyRoom" parameterClass="String" resultClass="vo.RoomVO">
+    	SELECT * FROM ROOM
+    	WHERE mem_id = #mem_id#
+    	AND is_delete = 0
+    </select>
+    
+    <select id="isContract" parameterClass="Integer" resultClass="vo.ContractVO">
+    	SELECT * FROM CONTRACT
+    	WHERE room_id = #room_id#
+    </select>
+    
+    <update id="deleteRoom" parameterClass="Integer">
+    	UPDATE ROOM SET is_delete = 1
+    	WHERE room_id = #room_id#
+    </update>
+    
+
+    </sqlMap>
+    
+    

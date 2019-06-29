@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.deleteAccount.DeleteAccountController">
+   <center>
+      <VBox maxWidth="600.0" minWidth="600.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+         <children>
+            <AnchorPane maxWidth="540.0" minWidth="540.0">
+               <children>
+                  <Label layoutX="215.0" maxHeight="30.0" minHeight="30.0" text="회원탈퇴">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
+            </AnchorPane>
+            <Label maxHeight="30.0" minHeight="30.0" text="회원탈퇴를 신청하기전에 아래 안내 사항을 한번 더 확인해주세요." textFill="#2d5eff">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label maxHeight="30.0" minHeight="30.0" text="1. 회원 탈퇴 시, 현재 로그인된 아이디는 즉시 탈퇴 처리됩니다.">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label maxHeight="30.0" minHeight="30.0" text="2. 회원 탈퇴 시, 회원 전용 웹 서비스 이용이 불가합니다.">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label maxHeight="30.0" minHeight="30.0" text="3. 탈퇴 시 회원 정보 및 찜 서비스, 등록한 게시물 이용 기록이 모두 삭제됩니다.">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label maxHeight="30.0" minHeight="30.0" text="4. 회원 정보 및 서비스 이용 기록은 모두 삭제되며, 삭제된 데이터는복구되지 않습니다.">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label maxHeight="30.0" minHeight="30.0" text="5. 광고를 위한 매물이 등록되어 있을 경우, 탈퇴 시 모든 정보는 삭제 처리됩니다.">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Label>
+            <VBox spacing="30.0">
+               <children>
+                  <JFXComboBox fx:id="cbDeleteReason" minHeight="45.0" minWidth="540.0" promptText="   탈퇴사유를 선택해주세요." />
+                  <JFXTextArea fx:id="taInputReason" maxHeight="120.0" minHeight="120.0" promptText="  다른 사유가 있다면 입력해주세요." style="-fx-border-color: #000000;" unFocusColor="#515151">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextArea>
+                  <JFXCheckBox fx:id="checkAgreement" checkedColor="#2d5eff" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="안내사항을 모두 확인하였으며, 이에 동의합니다.">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXCheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <JFXButton fx:id="btnConfimeDel" maxHeight="80.0" maxWidth="600.0" minHeight="80.0" minWidth="600.0" onAction="#onConfimeDel" style="-fx-background-color: #2d5eff;" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="탈퇴완료" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </bottom>
+</BorderPane>

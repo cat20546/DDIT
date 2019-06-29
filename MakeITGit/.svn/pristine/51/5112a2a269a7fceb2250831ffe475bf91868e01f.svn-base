@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="boardCell" prefHeight="25.0" prefWidth="1380.0" styleClass="question-cell-border" stylesheets="@../../res/css/styleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.mypage.BoardCellController">
+   <children>
+      <Label fx:id="lbDate" layoutX="1220.0" layoutY="4.0" text="2019/99/99" textFill="#393737">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbCategory" layoutX="188.0" layoutY="4.0" prefHeight="15.0" prefWidth="110.0" text="공지사항" textFill="#393737">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNo" layoutX="22.0" layoutY="4.0" prefHeight="15.0" prefWidth="35.0" text="No" textFill="#393737">
+         <HBox.margin>
+            <Insets left="30.0" />
+         </HBox.margin>
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTitle" layoutX="619.0" layoutY="4.0" prefHeight="15.0" prefWidth="282.0" text="제목제목제목제목제목" textFill="#393737">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbName" layoutX="1013.0" layoutY="4.0" text="이름석자" textFill="#393737">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

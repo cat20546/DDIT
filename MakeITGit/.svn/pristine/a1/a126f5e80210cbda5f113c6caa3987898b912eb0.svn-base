@@ -1,0 +1,61 @@
+/* 메인페이지 탑 */
+.main-top-border {
+	-fx-border-color : #D5D5D5;
+	-fx-border-width: 1px 0px 1px 0px;
+}
+
+
+/*마우스 클릭 */
+.mouse-hover{
+	 -fx-cursor: hand;
+}
+
+
+
+/* 방 이미지 */
+.cell-border{
+	 -fx-border-radius:10;
+	 -fx-background-radius:10;
+	 -fx-text-fill: #2196f3;
+}
+
+.cell-border:hover{
+	 -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.3) , 10, 0 , 3, 3);
+}
+
+.cell-border:pressed{
+	 -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.3) , 10, 0 , 3, 3);
+	 -fx-background-color: white;
+	 -tf-rotate:10;
+
+}
+
+/*스크롤 */
+.scrollpane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scrollpane:focused {
+    -fx-background-insets: 0;
+}
+
+.scrollpane.corner {
+    -fx-background-insets: 0;
+}
+
+/*플로우 페인 */
+.flowpane {
+	-fx-background-color:white;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.flowpane:focused {
+    -fx-background-insets: 0;
+}
+
+.flowpane.corner {
+    -fx-background-insets: 0;
+}
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="bpSiteInfoContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="siteInfo.siteInfo.SiteInfoController">
+   <top>
+      <VBox fx:id="vbSiteInfo" alignment="TOP_CENTER" maxWidth="1600.0" minWidth="1600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="문의하기">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" top="30.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" maxWidth="1200.0" minWidth="1200.0">
+               <VBox.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </VBox.margin>
+               <children>
+                  <JFXToggleNode fx:id="btnFrequentQuestions" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onFrequentQuestions" prefHeight="60.0" prefWidth="400.0" stylesheets="@../../res/css/styleSheet.css" text="자주묻는 질문">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggleSiteInfo" />
+                     </toggleGroup>
+                     <styleClass>
+                        <String fx:value="mouse-hover" />
+                        <String fx:value="siteInfo-header" />
+                     </styleClass>
+                  </JFXToggleNode>
+                  <JFXToggleNode fx:id="btnInquiry" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onInquiry" prefHeight="60.0" prefWidth="400.0" stylesheets="@../../res/css/styleSheet.css" text="1:1 문의" toggleGroup="$toggleSiteInfo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="mouse-hover" />
+                        <String fx:value="siteInfo-header" />
+                     </styleClass>
+                  </JFXToggleNode>
+                  <JFXToggleNode fx:id="btnNoticeBoard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onNoticeBoard" prefHeight="60.0" prefWidth="400.0" stylesheets="@../../res/css/styleSheet.css" text="공지사항" toggleGroup="$toggleSiteInfo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="mouse-hover" />
+                        <String fx:value="siteInfo-header" />
+                     </styleClass>
+                  </JFXToggleNode>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="100.0" right="100.0" top="50.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <VBox fx:id="vbSiteInfo" alignment="TOP_CENTER" prefHeight="500.0" BorderPane.alignment="TOP_CENTER">
+         <padding>
+            <Insets bottom="100.0" left="100.0" right="100.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

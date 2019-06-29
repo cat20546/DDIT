@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fx:id="spMain" maxHeight="-Infinity" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1620.0" styleClass="scrollpane" stylesheets="@../../res/css/styleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MainViewController">
+   <content>
+      <BorderPane fx:id="bpMainContainer" maxWidth="1600.0" prefWidth="1600.0" style="-fx-background-color: #FFFFFF;">
+         <center>
+            <VBox fx:id="vbMain" alignment="TOP_CENTER" maxHeight="3000.0" prefWidth="1650.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label focusTraversable="false" minHeight="60.0" text="어떤 동네, 어떤방에서" textFill="#0080ff">
+                     <font>
+                        <Font name="YDIYGO330" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label focusTraversable="false" minHeight="60.0" text="살고 싶으신가요?">
+                     <font>
+                        <Font name="YDIYGO330" size="48.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1600.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="76.0" prefWidth="609.0">
+                           <children>
+                              <TextField fx:id="tfSearchRoom" minHeight="45.0" prefWidth="500.0" styleClass="main-text-field" stylesheets="@../../res/css/styleSheet.css">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <JFXButton defaultButton="true" minHeight="41.0" onAction="#onMainSearchRoomClick" prefHeight="41.0" prefWidth="80.0" stylesheets="@../../res/css/styleSheet.css" text="방 찾기">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="mouse-hover" />
+                                    <String fx:value="main-search-btn" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <Label minHeight="40.0" text="쉬운 방찾기" textFill="#1a1a1b">
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label minHeight="30.0" text="방 찾기 초보를 위한 초간단 솔루션!" textFill="#0080ff">
+                     <font>
+                        <Font name="NanumSquare Regular" size="21.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane maxHeight="1600.0" maxWidth="1600.0" prefHeight="360.0" prefWidth="1600.0">
+                     <children>
+                        <ScrollPane focusTraversable="false" layoutX="177.0" layoutY="27.0" prefViewportHeight="311.0" prefViewportWidth="1247.0">
+                           <content>
+                              <HBox fx:id="hbRoomContainer" layoutX="177.0" layoutY="27.0" maxWidth="1600.0" prefHeight="311.0" prefWidth="1247.0" spacing="20.0" style="-fx-background-color: #FFFFFF;">
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="500.0" prefWidth="1600.0">
+                     <children>
+                        <Label layoutX="120.0" layoutY="57.0" text="니방내방이 알려주는 부동산 가이드">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="65.0" layoutY="132.0" prefHeight="330.0" prefWidth="1300.0">
+                           <children>
+                              <ImageView fitHeight="605.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/guide.png" />
+                                 </image>
+                              </ImageView>
+                              <AnchorPane>
+                                 <children>
+                                    <JFXButton focusTraversable="false" layoutX="52.0" layoutY="6.0" onAction="#onGuide1Click" prefHeight="326.0" prefWidth="235.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text=" ">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect></JFXButton>
+                                    <JFXButton focusTraversable="false" layoutX="294.0" layoutY="8.0" onAction="#onGuide2Click" prefHeight="326.0" prefWidth="235.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text=" ">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect></JFXButton>
+                                    <JFXButton focusTraversable="false" layoutX="533.0" layoutY="8.0" onAction="#onGuide3Click" prefHeight="326.0" prefWidth="235.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text=" ">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect></JFXButton>
+                                    <JFXButton focusTraversable="false" layoutX="774.0" layoutY="6.0" onAction="#onGuide4Click" prefHeight="326.0" prefWidth="235.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text=" ">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect></JFXButton>
+                                    <JFXButton focusTraversable="false" layoutX="1017.0" layoutY="8.0" onAction="#onGuide5Click" prefHeight="326.0" prefWidth="235.0" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text=" ">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect></JFXButton>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="80.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <top>
+            <HBox spacing="20.0" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #FFFFFF;" styleClass="main-top-border" stylesheets="@../../res/css/styleSheet.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="1069.0" spacing="30.0" style="-fx-alignment: CENTER_LEFT;">
+                     <children>
+                        <ImageView fx:id="ivLogo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <JFXButton focusTraversable="false" onAction="#onOwnerClick" text="방주인 사이트">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXButton>
+                        <JFXButton focusTraversable="false" onAction="#onSearchRoomClick" text="방찾기">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton focusTraversable="false" onAction="#onFavoritClick" text="관심목록">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton focusTraversable="false" onAction="#onRoomRegisterClick" text="방내놓기">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="administer" focusTraversable="false" styleClass="mainTopButton" text="관리자모드" visible="false" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="518.0" style="-fx-alignment: CENTER_RIGHT;">
+                     <children>
+                        <StackPane>
+                           <children>
+                              <HBox fx:id="hbLogin" alignment="CENTER" visible="false">
+                                 <children>
+                                    <ImageView fx:id="ivMemberIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="mouse-hover">
+                                       <image>
+                                          <Image url="@../../res/N.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets right="30.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <JFXButton fx:id="btnLogout" focusTraversable="false" onAction="#onLogoutClick" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="로그아웃">
+                                       <HBox.margin>
+                                          <Insets right="30.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hbNoLogin" alignment="CENTER">
+                                 <children>
+                                    <JFXButton fx:id="btnLogin" focusTraversable="false" onAction="#onLoginClick" styleClass="font" stylesheets="@../../res/css/styleSheet.css" text="로그인" />
+                                    <JFXButton fx:id="btnRegister" focusTraversable="false" onAction="#onRegisterClick" styleClass="font" stylesheets="@../../res/css/styleSheet.css" text="회원가입">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton focusTraversable="false" onAction="#onCloseClick" styleClass="font" stylesheets="@../../res/css/styleSheet.css" text="종료">
+                                       <HBox.margin>
+                                          <Insets right="30.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <bottom>
+            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="300.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/baner.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton focusTraversable="false" layoutX="794.0" layoutY="31.0" onAction="#onCompanyIntroClick" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="             " textFill="#d0cece">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnNoticeBoard" focusTraversable="false" layoutX="923.0" layoutY="31.0" onAction="#showNoticeBoard" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="            " textFill="#d0cece">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnFrequentQuestion" focusTraversable="false" layoutX="1050.0" layoutY="32.0" onAction="#onFrequentQuestion" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="                       " textFill="#d0cece">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton focusTraversable="false" layoutX="1223.0" layoutY="31.0" onAction="#manual" styleClass="mouse-hover" stylesheets="@../../res/css/styleSheet.css" text="                                 " textFill="#d0cece">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton focusTraversable="false" layoutX="1490.0" layoutY="15.0" onAction="#onGotoTopClick" prefHeight="61.0" prefWidth="63.0" text=" " />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </bottom>
+      </BorderPane>
+   </content>
+</ScrollPane>

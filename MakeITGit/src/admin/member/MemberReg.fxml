@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<ScrollPane prefHeight="900.0" prefWidth="1250.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.member.MemberRegisterController">
+   <content>
+      <BorderPane maxHeight="899.0" maxWidth="1400.0" minHeight="700.0" minWidth="1400.0" prefHeight="899.0" prefWidth="1400.0" style="-fx-background-color: #FFFFFF;">
+         <top>
+            <VBox maxHeight="700.0" minHeight="700.0" prefHeight="700.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane minWidth="600.0">
+                     <children>
+                        <Label layoutY="4.0" text="회원가입">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="btnClose" layoutX="565.0" onAction="#close" prefHeight="35.0" prefWidth="35.0" text="닫기" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <HBox maxWidth="600.0" minWidth="600.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <VBox maxWidth="130.0" minWidth="130.0" spacing="30.0">
+                           <children>
+                              <Label maxHeight="45.0" minHeight="45.0" text="아이디">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="이름">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="이메일">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="비밀번호">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="휴대폰 번호">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="주소">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="생일">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label maxHeight="45.0" minHeight="45.0" text="권한">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox maxWidth="480.0" minWidth="480.0" spacing="30.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxWidth="480.0" minWidth="480.0" spacing="10.0">
+                                 <children>
+                                    <JFXTextField fx:id="tfMemId" maxHeight="45.0" maxWidth="325.0" minHeight="45.0" minWidth="325.0" />
+                                    <JFXButton fx:id="btnDuplCheck" maxHeight="45.0" minHeight="45.0" minWidth="135.0" onAction="#checkDuplication" style="-fx-border-color: #166fff;" text="중복 확인" textFill="#166fff">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <JFXTextField fx:id="tfMemName" maxHeight="45.0" maxWidth="470.0" minHeight="45.0" minWidth="470.0" />
+                              <HBox alignment="CENTER_LEFT" maxWidth="480.0" minWidth="480.0" spacing="10.0">
+                                 <children>
+                                    <JFXTextField fx:id="tfMail1" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\@">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="cbMail2" maxHeight="45.0" maxWidth="140.0" minHeight="45.0" minWidth="140.0" />
+                                 </children>
+                              </HBox>
+                              <JFXTextField fx:id="tfMemPw" maxHeight="45.0" maxWidth="470.0" minHeight="45.0" minWidth="470.0" promptText="비밀번호">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <HBox alignment="CENTER_LEFT" maxWidth="480.0" minWidth="480.0" spacing="10.0">
+                                 <children>
+                                    <JFXComboBox fx:id="cbMemPhone1" maxHeight="45.0" maxWidth="110.0" minHeight="45.0" minWidth="110.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXTextField fx:id="tfMemPhone2" maxHeight="45.0" maxWidth="260.0" minHeight="45.0" minWidth="150.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXTextField fx:id="tfMemPhone3" maxHeight="45.0" maxWidth="260.0" minHeight="45.0" minWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxWidth="480.0" minWidth="480.0" spacing="10.0">
+                                 <children>
+                                    <JFXTextField fx:id="tfMemAddr1" maxHeight="45.0" maxWidth="325.0" minHeight="45.0" minWidth="325.0" promptText="주소를 입력하세요">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXButton fx:id="btnSearchAddr" maxHeight="45.0" minHeight="45.0" minWidth="135.0" onAction="#searchAddress" style="-fx-border-color: #166fff;" text="주소 검색" textFill="#166fff">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <JFXTextField fx:id="tfMemAddr2" editable="false" maxHeight="45.0" maxWidth="470.0" minHeight="45.0" minWidth="470.0" promptText="세부 주소">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <DatePicker fx:id="dpMemBirth" editable="false" onAction="#onDatePicked" prefHeight="45.0" prefWidth="300.0" />
+                              <JFXComboBox fx:id="cbMemAuth" maxHeight="45.0" maxWidth="470.0" minHeight="45.0" minWidth="470.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="CENTER" maxWidth="700.0" minWidth="700.0" prefHeight="200.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="btnCancel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #9B50BA;" text="취소" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="btnSignUp1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#signUp" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #9B50BA;" text="등록" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </VBox>
+         </top>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </BorderPane>
+   </content>
+</ScrollPane>
